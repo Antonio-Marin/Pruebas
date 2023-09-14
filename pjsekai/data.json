@@ -8,43 +8,43 @@
                     "idi": 0,
                     "namei" : "Hatsune Miku",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0
+                    "exp" : 0,
+                    "maxexp" : 1
                 },
                 {
                     "idi" : 1,
                     "namei" : "Rin Kagamine",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 2,
                     "namei" : "Len Kagamine",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {   
                     "idi" : 3,
                     "namei" : "Luka Megurine",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 4,
                     "namei" : "MEIKO",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 5,
                     "namei" : "KAITO",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 }
             ]
         },
@@ -56,29 +56,29 @@
                     "idi" : 0,
                     "namei" : "Hoshino Ichika",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 1,
                     "namei" : "Tenma Saki",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 2,
                     "namei" : "Mochizuki Honami",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 3,
                     "namei" : "Hinomori Shiho",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 }
             ]
         },
@@ -90,29 +90,29 @@
                     "idi" : 0,
                     "namei" : "Hanasato Minori",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 1,
                     "namei" : "Kiritani Haruka",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 2,
                     "namei" : "Momoi Airi",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 3,
                     "namei" : "Hinomori Shizuku",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 }
             ]
         },
@@ -124,29 +124,29 @@
                     "idi" : 0,
                     "namei" : "Azusawa Kohane",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 1,
                     "namei" : "Shiraishi An",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 2,
                     "namei" : "Shinonome Akito",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 3,
                     "namei" : "Aoyagi Toya",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 }
             ]
         },
@@ -158,29 +158,29 @@
                     "idi" : 0,
                     "namei" : "Tenma Tsukasa",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 1,
                     "namei" : "Otori Emu",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 2,
                     "namei" : "Kusanagi Nene",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 3,
                     "namei" : "Kamishiro Rui",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 }
             ]
         },
@@ -192,29 +192,29 @@
                     "idi" : 0,
                     "namei" : "Yoisaki Kanade",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 1,
                     "namei" : "Asahina Mafuyu",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 2,
                     "namei" : "Shinonome Ena",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 },
                 {
                     "idi" : 3,
                     "namei" : "Akiyama Mizuki",
                     "rank": 1,
-                    "stars" : 0,
-                    "maxstars" : 0 
+                    "exp" : 0,
+                    "maxexp" : 1 
                 }
             ]
         }
