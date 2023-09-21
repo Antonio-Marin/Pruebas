@@ -1,6 +1,6 @@
 import json
 
-with open("data.json") as file:
+with open("data_test.json") as file:
     data = json.load(file)
 
 
@@ -8,13 +8,16 @@ def main():
     print("\nBienvenido al menu.")
     print("\n\tElige una opción:")
     print("\n\t1. Ver grupos")
-    print("\t2. Salir\n")
+    print("\t2. ¿Qué personaje subo?")
+    print("\t3. Salir\n")
 
     var = input("Indica el número de la opción deseada:")
 
     if var == "1":
         group()
     elif var == "2":
+        nextrankreward()
+    elif var == "3":
         pass
     else:
         print("\nPOR FAVOR INTRODUZCA UN NÚMERO DE LOS QUE SE MUESTRAN")
@@ -114,7 +117,7 @@ def keepadding(vgroup,vintegrant, new_exp):
         else:
             keepadding(vgroup,vintegrant, aux)
     
-    with open("data.json", mode='w') as f:
+    with open("data_test.json", mode='w') as f:
             json.dump(data, f)
     totalexp(vgroup,vintegrant)
 
@@ -125,9 +128,37 @@ def calculaterank(vgroup,vintegrant, newrank):
         data["groups"][vgroup]["integrants"][vintegrant]["maxexp"] = 10
     else:
         data["groups"][vgroup]["integrants"][vintegrant]["maxexp"] = rexp[newrank]
-    with open("data.json", mode='w') as f:
+    with open("data_test.json", mode='w') as f:
            json.dump(data, f)
     totalexp(vgroup,vintegrant)
+
+    #TODO: funcion de las mejores recompensas y que te diga cual esta mas cerca de subir
+def nextrankreward():
+    wr = [1,2,6,8,13,16,18,22,23,28,33,38,43,48,53,58,63,68,73,78,83,88,93,98,103,108]
+    cry3 = list()
+    bo=list()
+    cry1 = list()
+    co = list()
+    for group in data["groups"]:
+        for integrant in group["integrants"]:
+            nextrank = integrant["rank"]+1
+            if nextrank not in wr:
+                if nextrank%5 == 0:
+                    if (integrant["maxexp"]-integrant["exp"]) == 1:
+                        bo.append(integrant["namei"])
+                    else:
+                        cry3.append(integrant["namei"])
+                else:
+                    if (integrant["maxexp"]-integrant["exp"]) == 1:
+                        co.append(integrant["namei"])
+                    else:
+                        cry1.append(integrant["namei"])
+                        
+    print("\nA punto de subir (300 cristales):", bo,"\n")
+    print("A punto de subir (100 cristales) ",co,"\n")
+    print("Personajes que te van a dar 300 cristales: ",cry3,"\n")
+    print("Personajes que te van a dar 100 cristales: ",cry1,"\n")
+                    
 
 if __name__ == '__main__':
     main()
