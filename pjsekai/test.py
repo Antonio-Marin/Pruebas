@@ -3,8 +3,6 @@ import json
 with open("data.json") as file:
     data = json.load(file)
 
-#print(data["groups"][0]["integrants"])
-
 
 def main():
     print("\nBienvenido al menu.")
@@ -68,31 +66,68 @@ def character(vgroup):
 
 def totalexp(vgroup,vintegrant):
 
-    #TODO: Implementar una "interfaz" mejor que muestre los datos necesarios
     print("\n \t",data["groups"][vgroup]["integrants"][vintegrant]["namei"],"\n")
     print("\t \t","Rango:",data["groups"][vgroup]["integrants"][vintegrant]["rank"])
     print("\t \t", "Experiencia:",data["groups"][vgroup]["integrants"][vintegrant]["exp"],"/", data["groups"][vgroup]["integrants"][vintegrant]["maxexp"])
     print("\n\tElige una opción:")
     print("\n\t1. Añadir Experiencia")
-    print("\t2. Modificar datos")
-    print("\t3. Atrás")
-    print("\t4. Salir\n")
+    print("\t2. Atrás")
+    print("\t3. Salir\n")
 
     var = input("Indica el número de la opción deseada:")
 
     if var == "1":
-        pass
+        addexp(vgroup,vintegrant)
     elif var == "2":
-        pass
-    elif var == "3":
         character(vgroup)
-    elif var == "4":
+    elif var == "3":
         pass
     else:
         print("\nPOR FAVOR INTRODUZCA UN NÚMERO DE LOS QUE SE MUESTRAN")
         totalexp(vgroup, vintegrant)
 
-#TODO: Implementar funcion(es) para implementar añadir Experiencia directamente, quitar o modificar los datos (esta última podría pedirtela al ejecutar el código por 1ª vez)
+def addexp(vgroup,vintegrant):
+    rank = data["groups"][vgroup]["integrants"][vintegrant]["rank"]
+    exp = data["groups"][vgroup]["integrants"][vintegrant]["exp"]
+    maxexp = data["groups"][vgroup]["integrants"][vintegrant]["maxexp"]
+
+    new_exp = input("\tExperiencia a añadir:")
+    keepadding(vgroup,vintegrant, int(new_exp))
+
+def keepadding(vgroup,vintegrant, new_exp):
+
+    maxexp = data["groups"][vgroup]["integrants"][vintegrant]["maxexp"]
+
+    if(new_exp==0):
+        totalexp(vgroup,vintegrant)
+    elif(new_exp<maxexp):
+        data["groups"][vgroup]["integrants"][vintegrant]["exp"] += int(new_exp)
+    elif(new_exp==maxexp):
+        data["groups"][vgroup]["integrants"][vintegrant]["exp"] = 0
+        data["groups"][vgroup]["integrants"][vintegrant]["rank"] +=1
+        calculaterank(vgroup,vintegrant, data["groups"][vgroup]["integrants"][vintegrant]["rank"])
+    else:
+        data["groups"][vgroup]["integrants"][vintegrant]["rank"] +=1
+        aux = int(new_exp) - maxexp
+        if(aux<maxexp):
+            data["groups"][vgroup]["integrants"][vintegrant]["exp"] += aux
+        else:
+            keepadding(vgroup,vintegrant, aux)
+    
+    with open("data.json", mode='w') as f:
+            json.dump(data, f)
+    totalexp(vgroup,vintegrant)
+
+def calculaterank(vgroup,vintegrant, newrank):
+    rexp = {1:1,2:1,3:2,4:3,5:3,6:4,7:4,8:4,9:4,10:4,11:5,12:5,13:5,14:5,15:5,16:6,17:6,18:6,19:6,20:6,
+            21:7,22:7,23:7,24:7,25:7,26:8,27:8,28:8,29:8,30:8,31:9,32:9,33:9,34:9,35:9}
+    if(newrank>=36 and newrank<110):
+        data["groups"][vgroup]["integrants"][vintegrant]["maxexp"] = 10
+    else:
+        data["groups"][vgroup]["integrants"][vintegrant]["maxexp"] = rexp[newrank]
+    with open("data.json", mode='w') as f:
+           json.dump(data, f)
+    totalexp(vgroup,vintegrant)
 
 if __name__ == '__main__':
     main()
