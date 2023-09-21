@@ -1,220 +1,220 @@
 {
-    "groups" : [
+    "groups": [
         {
-            "idg" : 0,
-            "nameg" : "Virtual Singer",
-            "integrants" : [
-                {   
+            "idg": 0,
+            "nameg": "Virtual Singer",
+            "integrants": [
+                {
                     "idi": 0,
-                    "namei" : "Hatsune Miku",
+                    "namei": "Hatsune Miku",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 1,
-                    "namei" : "Rin Kagamine",
+                    "idi": 1,
+                    "namei": "Rin Kagamine",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 2,
-                    "namei" : "Len Kagamine",
+                    "idi": 2,
+                    "namei": "Len Kagamine",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
-                },
-                {   
-                    "idi" : 3,
-                    "namei" : "Luka Megurine",
-                    "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 4,
-                    "namei" : "MEIKO",
+                    "idi": 3,
+                    "namei": "Luka Megurine",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 5,
-                    "namei" : "KAITO",
+                    "idi": 4,
+                    "namei": "MEIKO",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
+                },
+                {
+                    "idi": 5,
+                    "namei": "KAITO",
+                    "rank": 1,
+                    "exp": 0,
+                    "maxexp": 1
                 }
             ]
         },
         {
-            "idg" : 1,
-            "nameg" : "Leo/need",
-            "integrants" :[
+            "idg": 1,
+            "nameg": "Leo/need",
+            "integrants": [
                 {
-                    "idi" : 0,
-                    "namei" : "Hoshino Ichika",
+                    "idi": 0,
+                    "namei": "Hoshino Ichika",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 1,
-                    "namei" : "Tenma Saki",
+                    "idi": 1,
+                    "namei": "Tenma Saki",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 2,
-                    "namei" : "Mochizuki Honami",
+                    "idi": 2,
+                    "namei": "Mochizuki Honami",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 3,
-                    "namei" : "Hinomori Shiho",
+                    "idi": 3,
+                    "namei": "Hinomori Shiho",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 }
             ]
         },
         {
-            "idg" : 2,
-            "nameg" : "MORE MORE JUMP!",
-            "integrants" :[
+            "idg": 2,
+            "nameg": "MORE MORE JUMP!",
+            "integrants": [
                 {
-                    "idi" : 0,
-                    "namei" : "Hanasato Minori",
+                    "idi": 0,
+                    "namei": "Hanasato Minori",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 1,
-                    "namei" : "Kiritani Haruka",
+                    "idi": 1,
+                    "namei": "Kiritani Haruka",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 2,
-                    "namei" : "Momoi Airi",
+                    "idi": 2,
+                    "namei": "Momoi Airi",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 3,
-                    "namei" : "Hinomori Shizuku",
+                    "idi": 3,
+                    "namei": "Hinomori Shizuku",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 }
             ]
         },
         {
-            "idg" : 3,
-            "nameg" : "Vivid BAD SQUAD",
-            "integrants" :[
+            "idg": 3,
+            "nameg": "Vivid BAD SQUAD",
+            "integrants": [
                 {
-                    "idi" : 0,
-                    "namei" : "Azusawa Kohane",
+                    "idi": 0,
+                    "namei": "Azusawa Kohane",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 1,
-                    "namei" : "Shiraishi An",
+                    "idi": 1,
+                    "namei": "Shiraishi An",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 2,
-                    "namei" : "Shinonome Akito",
+                    "idi": 2,
+                    "namei": "Shinonome Akito",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 3,
-                    "namei" : "Aoyagi Toya",
+                    "idi": 3,
+                    "namei": "Aoyagi Toya",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 }
             ]
         },
         {
-            "idg" : 4,
-            "nameg" : "Wonderlands x Showtime",
-            "integrants" :[
+            "idg": 4,
+            "nameg": "Wonderlands x Showtime",
+            "integrants": [
                 {
-                    "idi" : 0,
-                    "namei" : "Tenma Tsukasa",
+                    "idi": 0,
+                    "namei": "Tenma Tsukasa",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 1,
-                    "namei" : "Otori Emu",
+                    "idi": 1,
+                    "namei": "Otori Emu",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 2,
-                    "namei" : "Kusanagi Nene",
+                    "idi": 2,
+                    "namei": "Kusanagi Nene",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 3,
-                    "namei" : "Kamishiro Rui",
+                    "idi": 3,
+                    "namei": "Kamishiro Rui",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 }
             ]
         },
         {
-            "idg" : 5,
-            "nameg" : "Nightcord at 25:00",
-            "integrants" :[
+            "idg": 5,
+            "nameg": "Nightcord at 25:00",
+            "integrants": [
                 {
-                    "idi" : 0,
-                    "namei" : "Yoisaki Kanade",
+                    "idi": 0,
+                    "namei": "Yoisaki Kanade",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 1,
-                    "namei" : "Asahina Mafuyu",
+                    "idi": 1,
+                    "namei": "Asahina Mafuyu",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 2,
-                    "namei" : "Shinonome Ena",
+                    "idi": 2,
+                    "namei": "Shinonome Ena",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 },
                 {
-                    "idi" : 3,
-                    "namei" : "Akiyama Mizuki",
+                    "idi": 3,
+                    "namei": "Akiyama Mizuki",
                     "rank": 1,
-                    "exp" : 0,
-                    "maxexp" : 1 
+                    "exp": 0,
+                    "maxexp": 1
                 }
             ]
         }
