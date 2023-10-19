@@ -78,7 +78,7 @@ class program:
             program.character(self, data["groups"][5]["idg"])
 
     def character(self, vgroup):
-        self.labelc = tkinter.Label(self.window, text="Elija un persnaje.")
+        self.labelc = tkinter.Label(self.window, text="Elija un personaje.")
         self.labelc.pack()
         if vgroup == 0:
             self.buttonc1 = tkinter.Button(self.window, text=data["groups"][vgroup]["integrants"][0]["namei"], command= lambda:program.character_pack_forget(self, 1, vgroup))
@@ -103,7 +103,7 @@ class program:
             self.buttonc4 = tkinter.Button(self.window, text=data["groups"][vgroup]["integrants"][3]["namei"], command= lambda:program.character_pack_forget(self, 4, vgroup))
             self.buttonc4.pack()
 
-        self.buttonc7 = tkinter.Button(self.window, text="Atrás", command= lambda: program.character_pack_forget(self, 0))
+        self.buttonc7 = tkinter.Button(self.window, text="Atrás", command= lambda: program.character_pack_forget(self, 0, vgroup))
         self.buttonc7.pack()
         self.buttonc8 = tkinter.Button(self.window, text="Salir", command= quit)
         self.buttonc8.pack()
@@ -137,38 +137,49 @@ class program:
             program.totalexp(self, vgroup, data["groups"][vgroup]["integrants"][5]["idi"])
 
 
-    def totalexp(self, vgroup,vintegrant):
+    def totalexp(self,vgroup,vintegrant):
 
-        print("\n \t",data["groups"][vgroup]["integrants"][vintegrant]["namei"],"\n")
-        print("\t \t","Rango:",data["groups"][vgroup]["integrants"][vintegrant]["rank"])
-        print("\t \t", "Experiencia:",data["groups"][vgroup]["integrants"][vintegrant]["exp"],"/", data["groups"][vgroup]["integrants"][vintegrant]["maxexp"])
-        print("\n\tElige una opción:")
-        print("\n\t1. Añadir Experiencia")
-        print("\t2. Atrás")
-        print("\t3. Salir\n")
+        self.labelte1 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][vintegrant]["namei"])
+        self.labelte1.pack()
+        texto_aux1 = "Rango:",data["groups"][vgroup]["integrants"][vintegrant]["rank"]
+        self.labelte2 = tkinter.Label(self.window, text= texto_aux1 )
+        self.labelte2.pack()
+        texto_aux2 = "Experiencia:",data["groups"][vgroup]["integrants"][vintegrant]["exp"],"/", data["groups"][vgroup]["integrants"][vintegrant]["maxexp"]
+        self.labelte3 = tkinter.Label(self.window, text= texto_aux2 )
+        self.labelte3.pack()
+        self.labelte4 = tkinter.Label(self.window, text= "Elige una opción:" )
+        self.labelte4.pack()
+        #TODO: hacer el añadir experencia aqui dentro
+        self.buttonte1 = tkinter.Button(self.window, text="Añadir experiencia", command= lambda: program.totalexp_pack_forget(self, 1, vgroup, vintegrant))
+        self.buttonte1.pack()
+        self.buttonte2 = tkinter.Button(self.window, text="Atrás", command= lambda: program.totalexp_pack_forget(self, 0, vgroup, vintegrant))
+        self.buttonte2.pack()
+        self.buttonte3 = tkinter.Button(self.window, text="Salir", command= quit)
+        self.buttonte3.pack()
 
-        var = input("Indica el número de la opción deseada:")
-
-        if var == "1":
-            program.addexp(vgroup,vintegrant)
-        elif var == "2":
-            program.character(vgroup)
-        elif var == "3":
-            pass
+    def totalexp_pack_forget(self, aux, vgroup, vintegrant):
+        self.labelte1.pack_forget()
+        self.labelte2.pack_forget()
+        self.labelte3.pack_forget()
+        self.labelte4.pack_forget()
+        self.buttonte1.pack_forget() 
+        self.buttonte2.pack_forget()
+        self.buttonte3.pack_forget()
+        if aux == 0:
+            program.character(self, vgroup)
         else:
-            print("\nPOR FAVOR INTRODUZCA UN NÚMERO DE LOS QUE SE MUESTRAN")
-            program.totalexp(vgroup, vintegrant)
-
-    def addexp(vgroup,vintegrant):
+            program.addexp(self, vgroup, vintegrant) #TODO: quitar de aqui
+    
+    def addexp(self,vgroup,vintegrant):
         new_exp = input("\tExperiencia a añadir:")
-        program.keepadding(vgroup,vintegrant, int(new_exp))
+        program.keepadding(self,vgroup,vintegrant, int(new_exp))
 
-    def keepadding(vgroup,vintegrant, new_exp):
+    def keepadding(self,vgroup,vintegrant, new_exp):
 
         maxexp = data["groups"][vgroup]["integrants"][vintegrant]["maxexp"]
 
         if(new_exp==0):
-            program.totalexp(vgroup,vintegrant)
+            program.totalexp(self,vgroup,vintegrant)
         elif(new_exp<maxexp):
             data["groups"][vgroup]["integrants"][vintegrant]["exp"] += int(new_exp)
         elif(new_exp==maxexp):
@@ -181,11 +192,11 @@ class program:
             if(aux<maxexp):
                 data["groups"][vgroup]["integrants"][vintegrant]["exp"] += aux
             else:
-                program.keepadding(vgroup,vintegrant, aux)
+                program.keepadding(self,vgroup,vintegrant, aux)
         
         with open("data_test.json", mode='w') as f:
                 json.dump(data, f)
-        program.totalexp(vgroup,vintegrant)
+        program.totalexp(self,vgroup,vintegrant)
 
     def calculaterank(vgroup,vintegrant, newrank):
         rexp = {1:1,2:1,3:2,4:3,5:3,6:4,7:4,8:4,9:4,10:4,11:5,12:5,13:5,14:5,15:5,16:6,17:6,18:6,19:6,20:6,
