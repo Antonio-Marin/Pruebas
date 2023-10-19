@@ -35,17 +35,17 @@ class program:
     def group(self):
         self.labelg = tkinter.Label(self.window, text="Elija una opción.")
         self.labelg.pack()
-        self.buttong1 = tkinter.Button(self.window, text=data["groups"][0]["nameg"], command= lambda:program.character(data["groups"][0]["idg"]))
+        self.buttong1 = tkinter.Button(self.window, text=data["groups"][0]["nameg"], command= lambda:program.group_pack_forget(self, 1))
         self.buttong1.pack()
-        self.buttong2 = tkinter.Button(self.window, text=data["groups"][1]["nameg"], command= lambda:program.character(data["groups"][1]["idg"]))
+        self.buttong2 = tkinter.Button(self.window, text=data["groups"][1]["nameg"], command= lambda:program.group_pack_forget(self, 2))
         self.buttong2.pack()
-        self.buttong3 = tkinter.Button(self.window, text=data["groups"][2]["nameg"], command= lambda:program.character(data["groups"][2]["idg"]))
+        self.buttong3 = tkinter.Button(self.window, text=data["groups"][2]["nameg"], command= lambda:program.group_pack_forget(self, 3))
         self.buttong3.pack()
-        self.buttong4 = tkinter.Button(self.window, text=data["groups"][3]["nameg"], command= lambda:program.character(data["groups"][3]["idg"]))
+        self.buttong4 = tkinter.Button(self.window, text=data["groups"][3]["nameg"], command= lambda:program.group_pack_forget(self, 4))
         self.buttong4.pack()
-        self.buttong5 = tkinter.Button(self.window, text=data["groups"][4]["nameg"], command= lambda:program.character(data["groups"][4]["idg"]))
+        self.buttong5 = tkinter.Button(self.window, text=data["groups"][4]["nameg"], command= lambda:program.group_pack_forget(self, 5))
         self.buttong5.pack()
-        self.buttong6 = tkinter.Button(self.window, text=data["groups"][5]["nameg"], command= lambda:program.character(data["groups"][5]["idg"]))
+        self.buttong6 = tkinter.Button(self.window, text=data["groups"][5]["nameg"], command= lambda:program.group_pack_forget(self, 6))
         self.buttong6.pack()
         self.buttong7 = tkinter.Button(self.window, text="Atrás", command= lambda: program.group_pack_forget(self, 0))
         self.buttong7.pack()
@@ -65,31 +65,79 @@ class program:
         if aux == 0:
             program.main(self)
         elif aux == 1:
-            program.nextrankreward()
+            program.character(self, data["groups"][0]["idg"])
+        elif aux == 2:
+            program.character(self, data["groups"][1]["idg"])
+        elif aux == 3:
+            program.character(self, data["groups"][2]["idg"])
+        elif aux == 4:
+            program.character(self, data["groups"][3]["idg"])
+        elif aux == 5:
+            program.character(self, data["groups"][4]["idg"])
+        elif aux == 6:
+            program.character(self, data["groups"][5]["idg"])
 
-    def character(vgroup):
-        print("\n")
-        idis = list()
-        for i in data["groups"][vgroup]["integrants"]:
-            idis.append(i["idi"]+1)
-            print("\t",i["idi"]+1,".",i["namei"])
-        number = len(data["groups"][vgroup]["integrants"]) +1
-        print("\t",number,". Atrás")
-        print("\t",number+1,". salir","\n")
-
-        var = input("Indica el número de la opción deseada:")
-
-        if var in str(idis):
-            program.totalexp(vgroup,int(var)-1)
-        elif var == str(number):
-            group()
-        elif var == str(number+1):
-            pass
+    def character(self, vgroup):
+        self.labelc = tkinter.Label(self.window, text="Elija un persnaje.")
+        self.labelc.pack()
+        if vgroup == 0:
+            self.buttonc1 = tkinter.Button(self.window, text=data["groups"][vgroup]["integrants"][0]["namei"], command= lambda:program.character_pack_forget(self, 1, vgroup))
+            self.buttonc1.pack()
+            self.buttonc2 = tkinter.Button(self.window, text=data["groups"][vgroup]["integrants"][1]["namei"], command= lambda:program.character_pack_forget(self, 2, vgroup))
+            self.buttonc2.pack()
+            self.buttonc3 = tkinter.Button(self.window, text=data["groups"][vgroup]["integrants"][2]["namei"], command= lambda:program.character_pack_forget(self, 3, vgroup))
+            self.buttonc3.pack()
+            self.buttonc4 = tkinter.Button(self.window, text=data["groups"][vgroup]["integrants"][3]["namei"], command= lambda:program.character_pack_forget(self, 4, vgroup))
+            self.buttonc4.pack()
+            self.buttonc5 = tkinter.Button(self.window, text=data["groups"][vgroup]["integrants"][4]["namei"], command= lambda:program.character_pack_forget(self, 5, vgroup))
+            self.buttonc5.pack()
+            self.buttonc6 = tkinter.Button(self.window, text=data["groups"][vgroup]["integrants"][5]["namei"], command= lambda:program.character_pack_forget(self, 6, vgroup))
+            self.buttonc6.pack()
         else:
-            print("\nPOR FAVOR INTRODUZCA UN NÚMERO DE LOS QUE SE MUESTRAN")
-            program.character(vgroup)
+            self.buttonc1 = tkinter.Button(self.window, text=data["groups"][vgroup]["integrants"][0]["namei"], command= lambda:program.character_pack_forget(self, 1, vgroup))
+            self.buttonc1.pack()
+            self.buttonc2 = tkinter.Button(self.window, text=data["groups"][vgroup]["integrants"][1]["namei"], command= lambda:program.character_pack_forget(self, 2, vgroup))
+            self.buttonc2.pack()
+            self.buttonc3 = tkinter.Button(self.window, text=data["groups"][vgroup]["integrants"][2]["namei"], command= lambda:program.character_pack_forget(self, 3, vgroup))
+            self.buttonc3.pack()
+            self.buttonc4 = tkinter.Button(self.window, text=data["groups"][vgroup]["integrants"][3]["namei"], command= lambda:program.character_pack_forget(self, 4, vgroup))
+            self.buttonc4.pack()
 
-    def totalexp(vgroup,vintegrant):
+        self.buttonc7 = tkinter.Button(self.window, text="Atrás", command= lambda: program.character_pack_forget(self, 0))
+        self.buttonc7.pack()
+        self.buttonc8 = tkinter.Button(self.window, text="Salir", command= quit)
+        self.buttonc8.pack()
+
+    def character_pack_forget(self, aux, vgroup):
+        self.labelc.pack_forget()
+        self.buttonc1.pack_forget()
+        self.buttonc2.pack_forget()
+        self.buttonc3.pack_forget()
+        self.buttonc4.pack_forget()
+        self.buttonc7.pack_forget()
+        self.buttonc8.pack_forget()
+
+        if vgroup == 0:
+            self.buttonc5.pack_forget()
+            self.buttonc6.pack_forget()
+
+        if aux == 0:
+            program.group(self)
+        elif aux == 1:
+            program.totalexp(self, vgroup, data["groups"][vgroup]["integrants"][0]["idi"])
+        elif aux == 2:
+            program.totalexp(self, vgroup, data["groups"][vgroup]["integrants"][1]["idi"])
+        elif aux == 3:
+            program.totalexp(self, vgroup, data["groups"][vgroup]["integrants"][2]["idi"])
+        elif aux == 4:
+            program.totalexp(self, vgroup, data["groups"][vgroup]["integrants"][3]["idi"])
+        elif aux == 5:
+            program.totalexp(self, vgroup, data["groups"][vgroup]["integrants"][4]["idi"])
+        elif aux == 6:
+            program.totalexp(self, vgroup, data["groups"][vgroup]["integrants"][5]["idi"])
+
+
+    def totalexp(self, vgroup,vintegrant):
 
         print("\n \t",data["groups"][vgroup]["integrants"][vintegrant]["namei"],"\n")
         print("\t \t","Rango:",data["groups"][vgroup]["integrants"][vintegrant]["rank"])
