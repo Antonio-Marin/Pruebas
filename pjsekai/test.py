@@ -17,7 +17,7 @@ class program:
         self.labeli.pack()
         self.buttoni1 = tkinter.Button(self.window, text="Ver grupos", command=lambda:program.main_pack_forget(self, 0))
         self.buttoni1.pack()
-        self.buttoni2 = tkinter.Button(self.window, text="¿Qué personaje subo?", command=program.nextrankreward)
+        self.buttoni2 = tkinter.Button(self.window, text="¿Qué personaje subo?", command=lambda:program.main_pack_forget(self, 1))
         self.buttoni2.pack()
         self.buttoni3 = tkinter.Button(self.window, text="Salir", command=quit)
         self.buttoni3.pack()
@@ -30,7 +30,7 @@ class program:
         if aux == 0:
             program.group(self)
         elif aux == 1:
-            program.nextrankreward()
+            program.nextrankreward(self)
         
     def group(self):
         self.labelg = tkinter.Label(self.window, text="Elija una opción.")
@@ -149,67 +149,79 @@ class program:
         self.labelte3.pack()
         self.labelte4 = tkinter.Label(self.window, text= "Elige una opción:" )
         self.labelte4.pack()
-        #TODO: hacer el añadir experencia aqui dentro
-        self.buttonte1 = tkinter.Button(self.window, text="Añadir experiencia", command= lambda: program.totalexp_pack_forget(self, 1, vgroup, vintegrant))
+        self.new_exp = tkinter.Entry()
+        self.new_exp.insert(0,"0")
+        self.new_exp.pack()
+        self.buttonte1 = tkinter.Button(self.window, text="Añadir experiencia", command= lambda:program.keepadding(self,vgroup, vintegrant, int(self.new_exp.get())))
         self.buttonte1.pack()
         self.buttonte2 = tkinter.Button(self.window, text="Atrás", command= lambda: program.totalexp_pack_forget(self, 0, vgroup, vintegrant))
         self.buttonte2.pack()
         self.buttonte3 = tkinter.Button(self.window, text="Salir", command= quit)
         self.buttonte3.pack()
+            
 
     def totalexp_pack_forget(self, aux, vgroup, vintegrant):
         self.labelte1.pack_forget()
         self.labelte2.pack_forget()
         self.labelte3.pack_forget()
         self.labelte4.pack_forget()
-        self.buttonte1.pack_forget() 
+        self.new_exp.pack_forget()
+        self.buttonte1.pack_forget()
         self.buttonte2.pack_forget()
         self.buttonte3.pack_forget()
         if aux == 0:
             program.character(self, vgroup)
         else:
-            program.addexp(self, vgroup, vintegrant) #TODO: quitar de aqui
+            program.totalexp(self, vgroup, vintegrant)
     
-    def addexp(self,vgroup,vintegrant):
-        new_exp = input("\tExperiencia a añadir:")
-        program.keepadding(self,vgroup,vintegrant, int(new_exp))
 
-    def keepadding(self,vgroup,vintegrant, new_exp):
-
+    def keepadding(self,vgroup,vintegrant, new_exp): #TODO: error en la rellamada
         maxexp = data["groups"][vgroup]["integrants"][vintegrant]["maxexp"]
-
-        if(new_exp==0):
-            program.totalexp(self,vgroup,vintegrant)
-        elif(new_exp<maxexp):
-            data["groups"][vgroup]["integrants"][vintegrant]["exp"] += int(new_exp)
-        elif(new_exp==maxexp):
+        new_exp += data["groups"][vgroup]["integrants"][vintegrant]["exp"]
+        if new_exp==0:
+            program.totalexp_pack_forget(self,1,vgroup,vintegrant)
+        elif new_exp<maxexp:
+            data["groups"][vgroup]["integrants"][vintegrant]["exp"] = new_exp
+        elif new_exp==maxexp:
             data["groups"][vgroup]["integrants"][vintegrant]["exp"] = 0
             data["groups"][vgroup]["integrants"][vintegrant]["rank"] +=1
-            program.calculaterank(vgroup,vintegrant, data["groups"][vgroup]["integrants"][vintegrant]["rank"])
-        else:
+            with open("data_test.json", mode='w') as f:
+                    json.dump(data, f)
+            program.calculaterank(self,vgroup,vintegrant, data["groups"][vgroup]["integrants"][vintegrant]["rank"])
+        elif new_exp>maxexp:
+            aux = new_exp-maxexp
+            data["groups"][vgroup]["integrants"][vintegrant]["exp"] = 0
             data["groups"][vgroup]["integrants"][vintegrant]["rank"] +=1
-            aux = int(new_exp) - maxexp
-            if(aux<maxexp):
-                data["groups"][vgroup]["integrants"][vintegrant]["exp"] += aux
-            else:
-                program.keepadding(self,vgroup,vintegrant, aux)
+            data["groups"][vgroup]["integrants"][vintegrant]["maxexp"] = program.new_maxexp(data["groups"][vgroup]["integrants"][vintegrant]["rank"])
+            with open("data_test.json", mode='w') as f:
+                    json.dump(data, f)
+            program.keepadding(self,vgroup,vintegrant, aux)
         
         with open("data_test.json", mode='w') as f:
                 json.dump(data, f)
-        program.totalexp(self,vgroup,vintegrant)
-
-    def calculaterank(vgroup,vintegrant, newrank):
+        program.totalexp_pack_forget(self,1,vgroup,vintegrant)
+        
+    def calculaterank(self,vgroup,vintegrant, newrank):
         rexp = {1:1,2:1,3:2,4:3,5:3,6:4,7:4,8:4,9:4,10:4,11:5,12:5,13:5,14:5,15:5,16:6,17:6,18:6,19:6,20:6,
                 21:7,22:7,23:7,24:7,25:7,26:8,27:8,28:8,29:8,30:8,31:9,32:9,33:9,34:9,35:9}
         if(newrank>=36 and newrank<110):
             data["groups"][vgroup]["integrants"][vintegrant]["maxexp"] = 10
         else:
             data["groups"][vgroup]["integrants"][vintegrant]["maxexp"] = rexp[newrank]
+
         with open("data_test.json", mode='w') as f:
             json.dump(data, f)
-        program.totalexp(vgroup,vintegrant)
+        program.totalexp_pack_forget(self,1,vgroup,vintegrant)
 
-    def nextrankreward():
+    def new_maxexp(rank):
+        rexp = {1:1,2:1,3:2,4:3,5:3,6:4,7:4,8:4,9:4,10:4,11:5,12:5,13:5,14:5,15:5,16:6,17:6,18:6,19:6,20:6,
+                21:7,22:7,23:7,24:7,25:7,26:8,27:8,28:8,29:8,30:8,31:9,32:9,33:9,34:9,35:9}
+        if rank<36:
+            return rexp[rank]
+        else:
+            return 10
+
+    def nextrankreward(self):
         wr = [1,2,6,8,13,16,18,22,23,28,33,38,43,48,53,58,63,68,73,78,83,88,93,98,103,108]
         cry3 = list()
         bo=list()
@@ -230,10 +242,47 @@ class program:
                         else:
                             cry1.append(integrant["namei"])
 
-        print("\nA punto de subir (300 cristales):", bo,"\n")
-        print("A punto de subir (100 cristales) ",co,"\n")
-        print("Personajes que te van a dar 300 cristales: ",cry3,"\n")
-        print("Personajes que te van a dar 100 cristales: ",cry1,"\n")
+        text1 = "A punto de subir (300 cristales):",bo
+        self.labelnr1 = tkinter.Label(self.window, text="A punto de subir (300 cristales):")
+        self.labelnr1.pack()
+        self.labelnr2 = tkinter.Label(self.window, text=str(bo))
+        self.labelnr2.pack()
+        text2 = "A punto de subir (100 cristales) ",co
+        self.labelnr3 = tkinter.Label(self.window, text="A punto de subir (100 cristales) ")
+        self.labelnr3.pack()
+        self.labelnr4 = tkinter.Label(self.window, text=str(co))
+        self.labelnr4.pack()
+        text3 = "Personajes que te van a dar 300 cristales: ",cry3
+        self.labelnr5 = tkinter.Label(self.window, text="Personajes que te van a dar 300 cristales: ")
+        self.labelnr5.pack()
+        self.labelnr6 = tkinter.Label(self.window, text=str(cry3))
+        self.labelnr6.pack()
+        text4 = "Personajes que te van a dar 100 cristales: ",cry1
+        self.labelnr7 = tkinter.Label(self.window, text="Personajes que te van a dar 100 cristales: ")
+        self.labelnr7.pack()
+        self.labelnr8 = tkinter.Label(self.window, text=str(cry1))
+        self.labelnr8.pack()
+        self.buttonnr1 = tkinter.Button(self.window, text="Atrás", command= lambda:program.nextrankreward_pack_forget(self))
+        self.buttonnr1.pack()
+        self.buttonnr2 = tkinter.Button(self.window, text="Salir", command= quit)
+        self.buttonnr2.pack()
+    
+    def nextrankreward_pack_forget(self):
+        self.labelnr1.pack_forget()
+        self.labelnr2.pack_forget()
+        self.labelnr3.pack_forget()
+        self.labelnr4.pack_forget()
+        self.labelnr5.pack_forget()
+        self.labelnr6.pack_forget()
+        self.labelnr7.pack_forget()
+        self.labelnr8.pack_forget()
+        self.buttonnr1.pack_forget()
+        self.buttonnr2.pack_forget()
+        program.main(self)
+
+    def prueba():
+        pass
+        
 
 if __name__ == '__main__':
     program()
