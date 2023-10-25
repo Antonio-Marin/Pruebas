@@ -7,6 +7,7 @@ with open("data_test.json") as file:
 
 class program:
     def __init__(self):
+        self.add = False
         self.window = tkinter.Tk()
         self.window.geometry("400x300")
         program.main(self)
@@ -19,35 +20,42 @@ class program:
         self.buttoni1.pack()
         self.buttoni2 = tkinter.Button(self.window, text="¿Qué personaje subo?", command=lambda:program.main_pack_forget(self, 1))
         self.buttoni2.pack()
-        self.buttoni3 = tkinter.Button(self.window, text="Salir", command=self.window.destroy)
+        self.buttoni3 = tkinter.Button(self.window, text="Añadir datos", command=lambda:program.main_pack_forget(self, 2))
         self.buttoni3.pack()
+        self.buttoni4 = tkinter.Button(self.window, text="Salir", command=self.window.destroy)
+        self.buttoni4.pack()
 
     def main_pack_forget(self, aux):
         self.labeli.pack_forget()
         self.buttoni1.pack_forget()
         self.buttoni2.pack_forget()
         self.buttoni3.pack_forget()
+        self.buttoni4.pack_forget()
         if aux == 0:
             program.group(self)
         elif aux == 1:
             program.nextrankreward(self)
+        elif aux == 2:
+            self.add = True
+            program.group(self)
         
     def group(self):
+
         self.labelg = tkinter.Label(self.window, text="Elija una opción.")
         self.labelg.pack()
-        self.buttong1 = tkinter.Button(self.window, text=data["groups"][0]["nameg"], command= lambda:program.group_pack_forget(self, 1))
+        self.buttong1 = tkinter.Button(self.window, text=data["groups"][0]["nameg"], command= lambda:program.group_pack_forget(self, 0))
         self.buttong1.pack()
-        self.buttong2 = tkinter.Button(self.window, text=data["groups"][1]["nameg"], command= lambda:program.group_pack_forget(self, 2))
+        self.buttong2 = tkinter.Button(self.window, text=data["groups"][1]["nameg"], command= lambda:program.group_pack_forget(self, 1))
         self.buttong2.pack()
-        self.buttong3 = tkinter.Button(self.window, text=data["groups"][2]["nameg"], command= lambda:program.group_pack_forget(self, 3))
+        self.buttong3 = tkinter.Button(self.window, text=data["groups"][2]["nameg"], command= lambda:program.group_pack_forget(self, 2))
         self.buttong3.pack()
-        self.buttong4 = tkinter.Button(self.window, text=data["groups"][3]["nameg"], command= lambda:program.group_pack_forget(self, 4))
+        self.buttong4 = tkinter.Button(self.window, text=data["groups"][3]["nameg"], command= lambda:program.group_pack_forget(self, 3))
         self.buttong4.pack()
-        self.buttong5 = tkinter.Button(self.window, text=data["groups"][4]["nameg"], command= lambda:program.group_pack_forget(self, 5))
+        self.buttong5 = tkinter.Button(self.window, text=data["groups"][4]["nameg"], command= lambda:program.group_pack_forget(self, 4))
         self.buttong5.pack()
-        self.buttong6 = tkinter.Button(self.window, text=data["groups"][5]["nameg"], command= lambda:program.group_pack_forget(self, 6))
+        self.buttong6 = tkinter.Button(self.window, text=data["groups"][5]["nameg"], command= lambda:program.group_pack_forget(self, 5))
         self.buttong6.pack()
-        self.buttong7 = tkinter.Button(self.window, text="Atrás", command= lambda: program.group_pack_forget(self, 0))
+        self.buttong7 = tkinter.Button(self.window, text="Atrás", command= lambda: program.group_pack_forget(self, 6))
         self.buttong7.pack()
         self.buttong8 = tkinter.Button(self.window, text="Salir", command= self.window.destroy)
         self.buttong8.pack()
@@ -62,19 +70,21 @@ class program:
         self.buttong6.pack_forget()
         self.buttong7.pack_forget()
         self.buttong8.pack_forget()
-        if aux == 0:
-            program.main(self)
-        elif aux == 1:
-            program.character(self, data["groups"][0]["idg"])
-        elif aux == 2:
-            program.character(self, data["groups"][1]["idg"])
-        elif aux == 3:
-            program.character(self, data["groups"][2]["idg"])
-        elif aux == 4:
-            program.character(self, data["groups"][3]["idg"])
-        elif aux == 5:
-            program.character(self, data["groups"][4]["idg"])
+        if self.add is True:
+            program.add_data(self,aux)
         elif aux == 6:
+            program.main(self)
+        elif aux == 0:
+            program.character(self, data["groups"][0]["idg"])
+        elif aux == 1:
+            program.character(self, data["groups"][1]["idg"])
+        elif aux == 2:
+            program.character(self, data["groups"][2]["idg"])
+        elif aux == 3:
+            program.character(self, data["groups"][3]["idg"])
+        elif aux == 4:
+            program.character(self, data["groups"][4]["idg"])
+        elif aux == 5:
             program.character(self, data["groups"][5]["idg"])
 
     def character(self, vgroup):
@@ -280,9 +290,50 @@ class program:
         self.buttonnr2.pack_forget()
         program.main(self)
 
-    def prueba():
-        pass
-        
+    def add_data(self, vgroup):
+        #TODO: hacer que sea funcional a la hora de añadir los datos
+        if vgroup == 0:
+            self.labelar1 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][0]["namei"])
+            self.labelar1.pack()
+            self.labelar2 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][1]["namei"])
+            self.labelar2.pack()
+            self.labelar3 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][2]["namei"])
+            self.labelar3.pack()
+            self.labelar4 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][3]["namei"])
+            self.labelar4.pack()
+            self.labelar5 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][4]["namei"])
+            self.labelar5.pack()
+            self.labelar6 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][5]["namei"])
+            self.labelar6.pack()
+        else:
+            self.labelar1 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][0]["namei"])
+            self.labelar1.pack()
+            self.labelar2 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][1]["namei"])
+            self.labelar2.pack()
+            self.labelar3 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][2]["namei"])
+            self.labelar3.pack()
+            self.labelar4 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][3]["namei"])
+            self.labelar4.pack()
+        self.buttonar1 = tkinter.Button(self.window, text="Atrás", command= lambda:program.add_data_pack_forget(self, vgroup))
+        self.buttonar1.pack() 
+        self.buttonar2 = tkinter.Button(self.window, text="Salir", command= self.window.destroy)
+        self.buttonar2.pack() 
+
+    def add_data_pack_forget(self, vgroup):
+        self.labelar1.pack_forget()
+        self.labelar2.pack_forget()
+        self.labelar3.pack_forget()
+        self.labelar4.pack_forget()
+        self.buttonar1.pack_forget()
+        self.buttonar2.pack_forget()
+
+        self.add = False
+
+        if vgroup == 0:
+            self.labelar5.pack_forget()
+            self.labelar6.pack_forget()
+
+        program.main(self)  
 
 if __name__ == '__main__':
     program()
