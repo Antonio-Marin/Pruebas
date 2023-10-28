@@ -14,36 +14,36 @@
                 {
                     "idi": 1,
                     "namei": "Rin Kagamine",
-                    "rank": 26,
-                    "exp": 3,
+                    "rank": 1,
+                    "exp": 0,
                     "maxexp": 8
                 },
                 {
                     "idi": 2,
                     "namei": "Len Kagamine",
-                    "rank": 32,
-                    "exp": 5,
+                    "rank": 1,
+                    "exp": 0,
                     "maxexp": 9
                 },
                 {
                     "idi": 3,
                     "namei": "Luka Megurine",
-                    "rank": 27,
-                    "exp": 5,
+                    "rank": 1,
+                    "exp": 0,
                     "maxexp": 8
                 },
                 {
                     "idi": 4,
                     "namei": "MEIKO",
-                    "rank": 24,
-                    "exp": 4,
+                    "rank": 1,
+                    "exp": 0,
                     "maxexp": 7
                 },
                 {
                     "idi": 5,
                     "namei": "KAITO",
-                    "rank": 26,
-                    "exp": 2,
+                    "rank": 1,
+                    "exp": 0,
                     "maxexp": 8
                 }
             ]

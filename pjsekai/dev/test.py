@@ -9,7 +9,7 @@ class program:
     def __init__(self):
         self.add = False
         self.window = tkinter.Tk()
-        self.window.geometry("400x300")
+        self.window.geometry("800x700")
         program.main(self)
         self.window.mainloop()
     
@@ -70,10 +70,11 @@ class program:
         self.buttong6.pack_forget()
         self.buttong7.pack_forget()
         self.buttong8.pack_forget()
-        if self.add is True:
-            program.add_data(self,aux)
-        elif aux == 6:
+        if aux == 6:
+            self.add = False
             program.main(self)
+        elif self.add is True:
+            program.add_data(self,aux)
         elif aux == 0:
             program.character(self, data["groups"][0]["idg"])
         elif aux == 1:
@@ -295,45 +296,207 @@ class program:
         if vgroup == 0:
             self.labelar1 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][0]["namei"])
             self.labelar1.pack()
+
+            self.new_rank1 = tkinter.Entry()
+            self.new_rank1.insert(0,data["groups"][vgroup]["integrants"][0]["rank"])
+            self.new_rank1.pack()
+
+            self.new_exp1 = tkinter.Entry()
+            self.new_exp1.insert(0,data["groups"][vgroup]["integrants"][0]["exp"])
+            self.new_exp1.pack()
+
             self.labelar2 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][1]["namei"])
             self.labelar2.pack()
+
+            self.new_rank2 = tkinter.Entry()
+            self.new_rank2.insert(0,data["groups"][vgroup]["integrants"][1]["rank"])
+            self.new_rank2.pack()
+
+            self.new_exp2 = tkinter.Entry()
+            self.new_exp2.insert(0,data["groups"][vgroup]["integrants"][1]["exp"])
+            self.new_exp2.pack()
+
             self.labelar3 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][2]["namei"])
             self.labelar3.pack()
+
+            self.new_rank3 = tkinter.Entry()
+            self.new_rank3.insert(0,data["groups"][vgroup]["integrants"][2]["rank"])
+            self.new_rank3.pack()
+
+            self.new_exp3 = tkinter.Entry()
+            self.new_exp3.insert(0,data["groups"][vgroup]["integrants"][2]["exp"])
+            self.new_exp3.pack()
+
             self.labelar4 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][3]["namei"])
             self.labelar4.pack()
+
+            self.new_rank4 = tkinter.Entry()
+            self.new_rank4.insert(0,data["groups"][vgroup]["integrants"][3]["rank"])
+            self.new_rank4.pack()
+
+            self.new_exp4 = tkinter.Entry()
+            self.new_exp4.insert(0,data["groups"][vgroup]["integrants"][3]["exp"])
+            self.new_exp4.pack()
+
             self.labelar5 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][4]["namei"])
             self.labelar5.pack()
+
+            self.new_rank5 = tkinter.Entry()
+            self.new_rank5.insert(0,data["groups"][vgroup]["integrants"][4]["rank"])
+            self.new_rank5.pack()
+
+            self.new_exp5 = tkinter.Entry()
+            self.new_exp5.insert(0,data["groups"][vgroup]["integrants"][4]["exp"])
+            self.new_exp5.pack()
+
+
             self.labelar6 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][5]["namei"])
             self.labelar6.pack()
+
+            self.new_rank6 = tkinter.Entry()
+            self.new_rank6.insert(0,data["groups"][vgroup]["integrants"][5]["rank"])
+            self.new_rank6.pack()
+
+            self.new_exp6 = tkinter.Entry()
+            self.new_exp6.insert(0,data["groups"][vgroup]["integrants"][5]["exp"])
+            self.new_exp6.pack()
+
+
         else:
             self.labelar1 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][0]["namei"])
             self.labelar1.pack()
+
+            self.new_rank1 = tkinter.Entry()
+            self.new_rank1.insert(0,data["groups"][vgroup]["integrants"][0]["rank"])
+            self.new_rank1.pack()
+
+            self.new_exp1 = tkinter.Entry()
+            self.new_exp1.insert(0,data["groups"][vgroup]["integrants"][0]["exp"])
+            self.new_exp1.pack()
+
             self.labelar2 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][1]["namei"])
             self.labelar2.pack()
+
+            self.new_rank2 = tkinter.Entry()
+            self.new_rank2.insert(0,data["groups"][vgroup]["integrants"][1]["rank"])
+            self.new_rank2.pack()
+
+            self.new_exp2 = tkinter.Entry()
+            self.new_exp2.insert(0,data["groups"][vgroup]["integrants"][1]["exp"])
+            self.new_exp2.pack()
+
             self.labelar3 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][2]["namei"])
             self.labelar3.pack()
+
+            self.new_rank3 = tkinter.Entry()
+            self.new_rank3.insert(0,data["groups"][vgroup]["integrants"][2]["rank"])
+            self.new_rank3.pack()
+
+            self.new_exp3 = tkinter.Entry()
+            self.new_exp3.insert(0,data["groups"][vgroup]["integrants"][2]["exp"])
+            self.new_exp3.pack()
+
             self.labelar4 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][3]["namei"])
             self.labelar4.pack()
-        self.buttonar1 = tkinter.Button(self.window, text="Atrás", command= lambda:program.add_data_pack_forget(self, vgroup))
-        self.buttonar1.pack() 
-        self.buttonar2 = tkinter.Button(self.window, text="Salir", command= self.window.destroy)
-        self.buttonar2.pack() 
 
-    def add_data_pack_forget(self, vgroup):
+            self.new_rank4 = tkinter.Entry()
+            self.new_rank4.insert(0,data["groups"][vgroup]["integrants"][3]["rank"])
+            self.new_rank4.pack()
+
+            self.new_exp4 = tkinter.Entry()
+            self.new_exp4.insert(0,data["groups"][vgroup]["integrants"][3]["exp"])
+            self.new_exp4.pack()
+        
+        self.buttonar1 = tkinter.Button(self.window, text="Añadir datos", command= lambda:program.overwrite(self, vgroup))
+        self.buttonar1.pack()
+        self.buttonar2 = tkinter.Button(self.window, text="Atrás", command= lambda:program.add_data_pack_forget(self, vgroup, 0))
+        self.buttonar2.pack() 
+        self.buttonar3 = tkinter.Button(self.window, text="Salir", command= self.window.destroy)
+        self.buttonar3.pack() 
+
+    def add_data_pack_forget(self, vgroup, aux):
+        self.add=False
+        
         self.labelar1.pack_forget()
         self.labelar2.pack_forget()
         self.labelar3.pack_forget()
         self.labelar4.pack_forget()
         self.buttonar1.pack_forget()
         self.buttonar2.pack_forget()
+        self.buttonar3.pack_forget()
 
-        self.add = False
+        self.new_rank1.pack_forget()
+        self.new_exp1.pack_forget()
+        self.new_rank2.pack_forget()
+        self.new_exp2.pack_forget()
+        self.new_rank3.pack_forget()
+        self.new_exp3.pack_forget()
+        self.new_rank4.pack_forget()
+        self.new_exp4.pack_forget()
 
         if vgroup == 0:
             self.labelar5.pack_forget()
+            self.new_rank5.pack_forget()
+            self.new_exp5.pack_forget()
             self.labelar6.pack_forget()
+            self.new_rank6.pack_forget() 
+            self.new_exp6.pack_forget()
 
-        program.main(self)  
+        if aux == 0:
+            program.main(self)
+        else:
+            labelextra = tkinter.Label(self.window, text="Datos actualizados correctamente.")
+            labelextra.pack()
+            #TODO: hacer que espere 5s para que el usuario vea el mensaje
+            labelextra.pack_forget()
+            program.main(self)
+            
+
+    def overwrite(self, vgroup): #TODO: hacer tratamiento de excepciones, rank mayor, exp no cuadra, etc.
+        print("acaba de entar a sobreescribir")
+        if vgroup == 0:
+            data["groups"][vgroup]["integrants"][0]["rank"] = int(self.new_rank1.get())
+            data["groups"][vgroup]["integrants"][0]["exp"] = int(self.new_exp1.get())
+            print("1 sobreescrito")
+
+            data["groups"][vgroup]["integrants"][1]["rank"] = int(self.new_rank2.get())
+            data["groups"][vgroup]["integrants"][1]["exp"] = int(self.new_exp2.get())
+            print("2")
+
+            data["groups"][vgroup]["integrants"][2]["rank"] = int(self.new_rank3.get())
+            data["groups"][vgroup]["integrants"][2]["exp"] = int(self.new_exp3.get())
+            print("3")
+
+            data["groups"][vgroup]["integrants"][3]["rank"] = int(self.new_rank4.get())
+            data["groups"][vgroup]["integrants"][3]["exp"] = int(self.new_exp4.get())
+            print("4")
+
+            data["groups"][vgroup]["integrants"][4]["rank"] = int(self.new_rank5.get())
+            data["groups"][vgroup]["integrants"][4]["exp"] = int(self.new_exp5.get())
+            print("5")
+
+            data["groups"][vgroup]["integrants"][5]["rank"] = int(self.new_rank6.get())
+            data["groups"][vgroup]["integrants"][5]["exp"] = int(self.new_exp6.get())
+            print("6")
+        
+        else:
+            data["groups"][vgroup]["integrants"][0]["rank"] = int(self.new_rank1.get())
+            data["groups"][vgroup]["integrants"][0]["exp"] = int(self.new_exp1.get())
+
+            data["groups"][vgroup]["integrants"][1]["rank"] = int(self.new_rank2.get())
+            data["groups"][vgroup]["integrants"][1]["exp"] = int(self.new_exp2.get())
+
+            data["groups"][vgroup]["integrants"][2]["rank"] = int(self.new_rank3.get())
+            data["groups"][vgroup]["integrants"][2]["exp"] = int(self.new_exp3.get())
+
+            data["groups"][vgroup]["integrants"][3]["rank"] = int(self.new_rank4.get())
+            data["groups"][vgroup]["integrants"][3]["exp"] = int(self.new_exp4.get())
+
+        with open("data_test.json", mode='w') as f:
+            json.dump(data, f)
+
+        program.add_data_pack_forget(self, vgroup, 1)
+          
 
 if __name__ == '__main__':
     program()
