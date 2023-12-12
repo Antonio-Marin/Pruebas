@@ -1,5 +1,6 @@
 import json
 import tkinter
+import time
 
 with open("data_test.json") as file:
     data = json.load(file)
@@ -9,7 +10,9 @@ class program:
     def __init__(self):
         self.add = False
         self.window = tkinter.Tk()
-        self.window.geometry("800x700")
+        ancho_pantalla = self.window.winfo_screenwidth()
+        alto_pantalla = self.window.winfo_screenheight()
+        self.window.geometry(f"{ancho_pantalla}x{alto_pantalla}")
         program.main(self)
         self.window.mainloop()
     
@@ -186,7 +189,7 @@ class program:
             program.totalexp(self, vgroup, vintegrant)
     
 
-    def keepadding(self,vgroup,vintegrant, new_exp): #TODO: error en la rellamada
+    def keepadding(self,vgroup,vintegrant, new_exp):
         maxexp = data["groups"][vgroup]["integrants"][vintegrant]["maxexp"]
         new_exp += data["groups"][vgroup]["integrants"][vintegrant]["exp"]
         if new_exp==0:
@@ -292,7 +295,6 @@ class program:
         program.main(self)
 
     def add_data(self, vgroup):
-        #TODO: hacer que sea funcional a la hora de añadir los datos
         if vgroup == 0:
             self.labelar1 = tkinter.Label(self.window, text=data["groups"][vgroup]["integrants"][0]["namei"])
             self.labelar1.pack()
@@ -445,39 +447,35 @@ class program:
         if aux == 0:
             program.main(self)
         else:
-            labelextra = tkinter.Label(self.window, text="Datos actualizados correctamente.")
+            window2 = tkinter.Tk()
+            window2.geometry("200x50")
+            labelextra = tkinter.Label(window2, text="Datos actualizados correctamente.")
             labelextra.pack()
-            #TODO: hacer que espere 5s para que el usuario vea el mensaje
-            labelextra.pack_forget()
-            program.main(self)
+            buttonextra = tkinter.Button(window2, text="Ok", command= window2.destroy)
+            buttonextra.pack()
+            program.main(self) 
+            window2.mainloop()
             
 
-    def overwrite(self, vgroup): #TODO: hacer tratamiento de excepciones, rank mayor, exp no cuadra, etc.
-        print("acaba de entar a sobreescribir")
+    def overwrite(self, vgroup): #TODO: hacer tratamiento de excepciones, rank mayor, exp no cuadra, etc. type (numero) == int
         if vgroup == 0:
             data["groups"][vgroup]["integrants"][0]["rank"] = int(self.new_rank1.get())
             data["groups"][vgroup]["integrants"][0]["exp"] = int(self.new_exp1.get())
-            print("1 sobreescrito")
 
             data["groups"][vgroup]["integrants"][1]["rank"] = int(self.new_rank2.get())
             data["groups"][vgroup]["integrants"][1]["exp"] = int(self.new_exp2.get())
-            print("2")
 
             data["groups"][vgroup]["integrants"][2]["rank"] = int(self.new_rank3.get())
             data["groups"][vgroup]["integrants"][2]["exp"] = int(self.new_exp3.get())
-            print("3")
 
             data["groups"][vgroup]["integrants"][3]["rank"] = int(self.new_rank4.get())
             data["groups"][vgroup]["integrants"][3]["exp"] = int(self.new_exp4.get())
-            print("4")
 
             data["groups"][vgroup]["integrants"][4]["rank"] = int(self.new_rank5.get())
             data["groups"][vgroup]["integrants"][4]["exp"] = int(self.new_exp5.get())
-            print("5")
 
             data["groups"][vgroup]["integrants"][5]["rank"] = int(self.new_rank6.get())
             data["groups"][vgroup]["integrants"][5]["exp"] = int(self.new_exp6.get())
-            print("6")
         
         else:
             data["groups"][vgroup]["integrants"][0]["rank"] = int(self.new_rank1.get())
@@ -500,3 +498,5 @@ class program:
 
 if __name__ == '__main__':
     program()
+
+#TODO: mirar max_exp en data_test.json
