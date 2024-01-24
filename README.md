@@ -1,5 +1,5 @@
 # VERSION 1.0 
-[DESCARGAR](https://github.com/Antonio-Marin/Pruebas/releases)
+[DOWNLOAD/DESCARGAR](https://github.com/Antonio-Marin/Pruebas/releases)
 
 ## [ENG]
 
